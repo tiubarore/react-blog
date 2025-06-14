@@ -23,7 +23,7 @@ function Nav({ search, setSearch }) {
           Search
         </label>
         <input
-          className="border ml-3 p-1 rounded"
+          className="w-40 border ml-3 p-1 rounded"
           type="text"
           id="search"
           placeholder="Search"
