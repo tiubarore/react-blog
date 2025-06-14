@@ -19,9 +19,7 @@ function Nav({ search, setSearch }) {
         className="searchForm self-center mx-auto"
         onSubmit={(e) => e.preventDefault()}
       >
-        <label htmlFor="search" className="">
-          Search
-        </label>
+        <label htmlFor="search" className=""></label>
         <input
           className="w-40 border ml-3 p-1 rounded"
           type="text"

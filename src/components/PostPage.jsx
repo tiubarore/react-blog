@@ -21,7 +21,7 @@ function PostPage({ posts, handleDelete }) {
               Delete Post
             </button>
 
-            <p className="text-2xl font-noticia">{post.body}</p>
+            <p className="font-body sm:text-2xl  font-noticia">{post.body}</p>
           </>
         )}
         {!post && (
