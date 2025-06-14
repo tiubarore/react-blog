@@ -5,7 +5,7 @@ function PostPage({ posts, handleDelete }) {
   const post = posts.find((post) => post.id == id);
   return (
     <main>
-      <article className="lg:px-64 px-10 md:px-20  mt-4 flex flex-col">
+      <article className="lg:px-64 px-4 md:px-20   mt-4 flex flex-col">
         {post && (
           <>
             <h2 className="text-4xl font-display font-bold text-center">
