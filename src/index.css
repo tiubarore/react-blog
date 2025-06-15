@@ -2,9 +2,13 @@
 
 @theme {
   --font-display: "Playfair Display", serif;
-  --font-noticia: "Playfair Display", serif;
+  --font-noticia: "Noticia Text", serif;
+  --font-poppins: "Poppins", sans-serif;
 }
 
 body {
   overflow-x: hidden;
+}
+.font-body {
+  font-size: 1.25rem;
 }

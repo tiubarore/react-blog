@@ -7,7 +7,7 @@ function Post({ post }) {
         <h2 className="text-2xl font-bold font-display">{post.title}</h2>
         <p className="font-thin text-gray-500">{post.datetime}</p>
       </Link>
-      <p className="font-noticia">
+      <p className="font-poppins">
         {post.body.length <= 50 ? post.body : `${post.body.slice(0, 350)}...`}
       </p>
     </article>
