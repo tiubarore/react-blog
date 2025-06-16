@@ -2,11 +2,11 @@ import Layout from "./components/Layout";
 import Home from "./components/Home";
 import NewPost from "./components/NewPost";
 import PostPage from "./components/PostPage";
+import EditPost from "./components/EditPost";
 import About from "./components/About";
 import Missing from "./components/Missing";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import data from "./components/data";
 import { format } from "date-fns";
 import api from "./api/apiPosts";
 
@@ -16,6 +16,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+  const [editTitle, setEditTitle] = useState("");
+  const [editBody, setEditBody] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,6 +65,22 @@ function App() {
     }
   };
 
+  const handleEdit = async (id) => {
+    const datetime = format(new Date(), "dd MM yyyy pp");
+    const updatedPost = { id, title: editTitle, datetime, body: editBody };
+    try {
+      const response = await api.put(`/posts/${id}`, updatedPost);
+      setPosts(
+        posts.map((post) => (post.id === id ? { ...response.data } : post))
+      );
+      setEditBody("");
+      setEditTitle("");
+      navigate("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       await api.delete(`/posts/${id}`);
@@ -94,6 +112,20 @@ function App() {
               />
             }
           />
+          <Route
+            path=":id/edit"
+            element={
+              <EditPost
+                posts={posts}
+                editTitle={editTitle}
+                setEditTitle={setEditTitle}
+                editBody={editBody}
+                setEditBody={setEditBody}
+                handleEdit={handleEdit}
+              />
+            }
+          />
+
           <Route
             path=":id"
             element={<PostPage posts={posts} handleDelete={handleDelete} />}
