@@ -14,16 +14,16 @@ function PostPage({ posts, handleDelete }) {
             <p className="font-thin  text-gray-500 text-center mb-2">
               {post.datetime}
             </p>
-            <div className="text-center">
+            <div className="text-center mb-2">
               <button
-                className="me-2 text-white font-poppins rounded cursor-pointer font-semibold bg-red-600 p-2.5 text-center hover:bg-red-800"
+                className="me-2 text-white font-poppins rounded cursor-pointer font-semibold bg-red-600 p-2.5 text-center hover:bg-red-900"
                 onClick={() => handleDelete(post.id)}
               >
                 Delete Post
               </button>
 
               <Link to={`/post/${post.id}/edit`}>
-                <button className="border p-2 hover:bg-black hover:text-white cursor-pointer">
+                <button className="font-poppins border p-2 hover:bg-black hover:text-white cursor-pointer">
                   Edit Post
                 </button>
               </Link>
