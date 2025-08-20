@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://my-json-server.typicode.com/tiubarore/bog-react",
+  baseURL: "https://my-json-server.typicode.com/tiubarore/blog-react",
 });
